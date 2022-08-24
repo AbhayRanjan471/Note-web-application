@@ -6,7 +6,7 @@ app.listen(port, function(err){
     if(err){
         // console.log('Error: ', err);
              //OR
-        console.log(`Error in running the server: ${err}`)// using backtik ``
+        console.log(`Error in running the server add: ${err}`)// using backtik ``
     }
     console.log(`Server is running on port: ${port}`);
 })
