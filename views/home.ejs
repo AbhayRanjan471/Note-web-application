@@ -3,9 +3,72 @@
         <title>
             <%= title %>
         </title>
+<link rel="stylesheet"  href="/css/home.css">
+
     </head>
 
     <body>
-        <h1>Codeial // <%= title %> </h1>
+        
+        <header>
+            <h1 id="header"> TODO APP</h1>
+        </header>
+        <hr>
+
+        <!-- Input Section -->
+        
+            <div id="user-input-section">
+                <form action="/description-list" method="POST">
+                    <div class="card">
+                        <p>DESCRIPTION</p>
+                        <input type="text"  name="discription" placeholder="What do you need to do? ">
+                    </div>
+                    <hr>
+                    <div>
+                        <div id="category">
+                            <!-- <form action="/action_page.php"> -->
+                                <label for="category">Choose a category:</label>
+                                <select name="category" required>
+                                  <option value="Personal">Personal</option>
+                                  <option value="Work">Work</option>
+                                  <option value="School">School</option>
+                                  <option value="other">other</option>
+                                </select>
+                              <!-- </form> -->
+                        </div>
+                        <div id="duedate">
+                            <p>DUE DATE</p>
+                            <input type="date" name="date">
+                        </div>
+                    </div>
+                    <hr>  
+                         <button type="submit">ADD TASK</button>
+                         <!-- <button type="submit">DELETE TASKS</button> -->    
+                </form>    
+            </div>
+
+            <!-- from here we will add the list dynamically -->
+            <div>
+                <ul>
+                    <% for(let i of todo_list){ %>
+                        <li>
+                            <input type="checkbox">
+                            <div>
+                                <p><%= i.discription %></p>
+                                <p><%= i.category %></p>
+                               <p><%= i.date %></p>
+                            </div>
+
+                            <!-- to delete -->
+                            <div class="delete-button">
+                                <!-- <a href="/delete-contact/<%= i.phone %>">  1st way using params-->
+                                    <button><a href="/delete-contact/?id=<%= i._id %>">  <!-- 2nd way using query param-->
+                                    DELETE</button>
+                                </a>
+                               </div>
+                        </li>
+                    <% } %>
+                </ul>
+            </div>
+        
     </body>
 </html>
