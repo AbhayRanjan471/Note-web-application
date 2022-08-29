@@ -4,11 +4,13 @@
             <%= title %>
         </title>
 <link rel="stylesheet"  href="/css/home.css">
+<!-- font asoum script link -->
+<script src="https://kit.fontawesome.com/3a2b5c12d0.js" crossorigin="anonymous"></script>
 
     </head>
 
     <body>
-        
+        <!-- Setting the header -->
         <header>
             <h1 id="header"> TODO APP</h1>
         </header>
@@ -18,14 +20,17 @@
         
             <div id="user-input-section">
                 <form action="/description-list" method="POST">
+                    <!-- this dive contains the Description -->
                     <div class="card">
                         <p>DESCRIPTION</p>
-                        <input type="text"  name="discription" placeholder="What do you need to do? ">
+                        <input class="card" type="text"  name="discription" placeholder="What do you need to do? ">
                     </div>
                     <hr>
-                    <div>
+                    <!-- this div contains the Category and Due Data -->
+                    <div class="catg-date-container card">
                         <div id="category">
-                            <!-- <form action="/action_page.php"> -->
+                             
+                                <p>CATEGORY</p>
                                 <label for="category">Choose a category:</label>
                                 <select name="category" required>
                                   <option value="Personal">Personal</option>
@@ -33,7 +38,7 @@
                                   <option value="School">School</option>
                                   <option value="other">other</option>
                                 </select>
-                              <!-- </form> -->
+                               
                         </div>
                         <div id="duedate">
                             <p>DUE DATE</p>
@@ -41,31 +46,44 @@
                         </div>
                     </div>
                     <hr>  
-                         <button type="submit">ADD TASK</button>
-                         <!-- <button type="submit">DELETE TASKS</button> -->    
+                    <div id="addbutton">
+                         <button  type="submit"><i class="fa-solid fa-plus"></i>           
+                            ADD TASK</button>
+                             
+                        </div> 
                 </form>    
             </div>
 
             <!-- from here we will add the list dynamically -->
-            <div>
-                <ul>
+            <div id="ul-list">
+                <ul style="list-style: none;">
                     <% for(let i of todo_list){ %>
+                        <div id="todo-container">
                         <li>
+                            <div class="dynamic-box">
                             <input type="checkbox">
-                            <div>
-                                <p><%= i.discription %></p>
-                                <p><%= i.category %></p>
-                               <p><%= i.date %></p>
                             </div>
 
+                            <div class="dynamic-box" id="dis-date-container">
+                                <p id="todo-dis"><%= i.discription %></p>
+                                
+                               <p><i class="fa-solid fa-calendar-days"></i>
+                                <%= i.date %></p>
+                                <p style="font-family:cursive;"><%= i.category %></p>             
+                            </div>
+
+                            
+
                             <!-- to delete -->
-                            <div class="delete-button">
+                            <div class ="dynamic-box" id="delete-box">
                                 <!-- <a href="/delete-contact/<%= i.phone %>">  1st way using params-->
-                                    <button><a href="/delete-contact/?id=<%= i._id %>">  <!-- 2nd way using query param-->
+                                    <button class="delete-button"><i class="fa-solid fa-trash-can"></i>
+                                        <a style="text-decoration:none ;" href="/delete-contact/?id=<%= i._id %>" >  <!-- 2nd way using query param-->
                                     DELETE</button>
                                 </a>
-                               </div>
+                            </div>
                         </li>
+                    </div>
                     <% } %>
                 </ul>
             </div>
