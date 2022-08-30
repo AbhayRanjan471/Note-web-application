@@ -60,7 +60,7 @@
                     <% for(let i of todo_list){ %>
                         <div id="todo-container">
                         <li>
-                            <div class="dynamic-box">
+                            <div class="dynamic-box" id="checkbox">
                             <input type="checkbox">
                             </div>
 
@@ -69,7 +69,7 @@
                                 
                                <p><i class="fa-solid fa-calendar-days"></i>
                                 <%= i.date %></p>
-                                <p style="font-family:cursive;"><%= i.category %></p>             
+                                <p style="font-family:cursive; color: rgb(65, 71, 240);"><%= i.category %></p>             
                             </div>
 
                             

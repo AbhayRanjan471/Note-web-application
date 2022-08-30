@@ -11,6 +11,7 @@ const router = express.Router();
 //import home_controller
 const homeController = require('../controllers/home_controller');
 const postController = require('../controllers/post_controller');
+const deleteController = require('../controllers/delete_controller');
 // const { route } = require('./users');
 // const { route } = require('./posts');
 
@@ -21,19 +22,11 @@ router.get('/',homeController.home);
 
 router.post('/description-list', postController.posts);
 
-router.get('/delete-contact/', homeController.delete);
+router.get('/delete-contact/', deleteController.delete);
 
 
 
-//this router handle the post
-// router.use('/post', require('./posts'));
-
-
-//this route handle the user 
-//when any request will come for user it will require users
-router.use('/user',require('./users'));
-
-
+//Syntex:
 // for anyfurther routes, access from here
 // router.use('/routerName', require('./routerfile'));
 

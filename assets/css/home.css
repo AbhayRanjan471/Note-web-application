@@ -29,6 +29,7 @@ input{
 }
 #ul-list{
     margin-left: 0px;
+    margin-right: 25px;
 }
 p{
     font-family: sans-serif;
@@ -71,7 +72,8 @@ input{
  #delete-box{
     position: absolute;
     right: 20px;
-    margin-top: 43px;
+    margin-top: 58px;
+    margin-right: 45px;
     justify-content: space-between;
  }
  /* using meida quesry to make the application responsive */
